@@ -1,19 +1,18 @@
-# php-sysv-ipc-shared-memory 
-
-This package is wrapper for php sysv shm_xxx.
+# php-sysv-ipc-info 
+  
+This package manage sysvipc( `/proc/sysvipc/{shm,msg,sem}` ).
 
 ## Installing 
 from Packagist 
 ```shell
-composer require takuya/php-sysv-ipc-shared-memory
+composer require takuya/php-sysv-ipc-info 
 ```
 from GitHub
 ```shell
-name='php-sysv-ipc-shared-memory'
-composer config repositories.$name \
-vcs https://github.com/takuya/$name  
-composer require takuya/$name:master
-composer install
+name='takuya/php-sysv-ipc-info'
+repo=git@github.com:$name.git
+composer config repositories.$name vcs $repo
+composer require $name:master
 ```
 ## Special 0x00000000 key
 
