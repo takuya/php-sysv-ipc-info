@@ -1,5 +1,7 @@
 {
   "name": "takuya/php-sysv-ipc-info",
+  "description" : "sysvipc info and remove.",
+  "license": "GPL-3.0-or-later",
   "autoload": {
     "psr-4": {
       "Takuya\\SysV\\": "src/SysV"
@@ -18,6 +20,9 @@
   "scripts": {
     "sysvipc": "src/bin/sysvipc"
   },
+  "bin": [
+    "src/bin/sysvipc"
+  ],
   "require": {
     "ext-sysvshm": "*",
     "ext-sysvmsg": "*",
