@@ -16,7 +16,7 @@ composer require $name:master
 ```
 ## Special 0x00000000 key
 
-After ipcs removed, but still attached. sysvipc will remain as key=0(0x000000).
+After ipcs removed, but still attached by someone. It will be remains . `sysvipc` will show remains as key=0(0x000000).
 
 ## Examples (bin)
 ```bash
