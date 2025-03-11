@@ -2,8 +2,6 @@
 
 namespace Takuya\SysV;
 
-use Takuya\ProcOpen\ProcOpen;
-
 class IPCInfo implements \Stringable {
   
   protected int $info_flag;
@@ -18,10 +16,10 @@ class IPCInfo implements \Stringable {
     $this->info_flag = $info_variables;
     $this->reload();
   }
-  public function reload():void{
+  
+  public function reload():void {
     $this->info = sysvipc_info($this->info_flag);
   }
-  
   
   public function remove( int $ipckey_int ):bool {
     $found = $this->find($ipckey_int);

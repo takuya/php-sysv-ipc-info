@@ -40,12 +40,11 @@ jobs:
           cat <<'EOS' > sample.php
           <?php
           require_once 'vendor/autoload.php';
-          use Takuya\SysV\IPCInfo;;
-          $arr = sysvipc_info();
+          $arr = \Takuya\SysV\sysvipc_info();
           $ret[] = isset($arr['shm']);
           $ret[] = isset($arr['msg']);
           $ret[] = isset($arr['sem']);
-          $info = new IPCInfo;
+          $info = new \Takuya\SysV\IPCInfo;
           $info->show();
 
           var_dump( $ret == [true,true,true]);

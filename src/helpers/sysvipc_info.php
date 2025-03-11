@@ -2,9 +2,6 @@
 
 namespace Takuya\SysV;
 
-use function PHPUnit\Framework\matches;
-use function PHPUnit\Framework\containsEqual;
-
 if( ! function_exists('sysvipc_info') ) {
   require_once __DIR__.'/../SysV/IPCInfo.php';
   require_once __DIR__.'/../SysV/IPCInfoEntry.php';
