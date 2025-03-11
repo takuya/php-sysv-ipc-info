@@ -29,25 +29,30 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: update tested date.
-#  run-composer-install:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name:  installation
-#        shell: bash
-#        run: |
-#          php -v
-#          composer require takuya/php-sysv-ipc-semaphore
-#          cat <<'EOS' > sample.php
-#          <?php
-#          require_once 'vendor/autoload.php';
-#          use Takuya\SysV\IPCSemaphore;
-#          $semaphore = new IPCSemaphore('sample');
-#          $ret[] = $semaphore->acquire();
-#          $ret[] = $semaphore->acquire(true);
-#          $ret[] = $semaphore->release();
-#          $ret[] = $semaphore->destroy();
-#          var_dump( $ret == [true,false,true,true]);
-#          EOS
-#          cat sample.php
-#          php sample.php
-#
+  run-composer-install:
+    runs-on: ubuntu-latest
+    steps:
+      - name:  installation
+        shell: bash
+        run: |
+          php -v
+          composer require takuya/php-sysv-ipc-info
+          cat <<'EOS' > sample.php
+          <?php
+          require_once 'vendor/autoload.php';
+          use Takuya\SysV\IPCInfo;;
+          $arr = sysvipc_info();
+          $ret[] = isset($arr['shm']);
+          $ret[] = isset($arr['msg']);
+          $ret[] = isset($arr['sem']);
+          $info = new IPCInfo;
+          $info->show();
+
+          var_dump( $ret == [true,true,true]);
+          EOS
+          cat sample.php
+          php sample.php
+      - name:  check command installed
+        shell: bash
+        run: |
+          which vendor/bin/sysvipc
