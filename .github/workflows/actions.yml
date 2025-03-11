@@ -55,3 +55,7 @@ jobs:
         shell: bash
         run: |
           which vendor/bin/sysvipc
+      - name:  run installed command
+        shell: bash
+        run: |
+          vendor/bin/sysvipc
