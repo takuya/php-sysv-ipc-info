@@ -58,4 +58,4 @@ jobs:
       - name:  run installed command
         shell: bash
         run: |
-          vendor/bin/sysvipc
+          vendor/bin/sysvipc -l
