@@ -26,6 +26,10 @@ class IPCInfoEntry implements \Stringable {
     return number_format($size, ( $i === 0 ? 0 : 1 )).$units[$i];
   }
   
+  public function toArray():array {
+    return ['category' => $this->category, 'entry' => $this->values];
+  }
+  
   public function colsize() {
     $keys = array_intersect(
       array_keys(
@@ -50,7 +54,7 @@ class IPCInfoEntry implements \Stringable {
     return array_intersect_key($cols, array_flip($keys));
   }
   
-  public function header() {
+  public function header():string {
     $str = '';
     foreach ($this->colsize() as $name => $l) {
       $str .= sprintf("% {$l}s", $name);
